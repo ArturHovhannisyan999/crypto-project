@@ -1,0 +1,25 @@
+import React from "react";
+import Header from "./components/header";
+import List from "./components/list";
+import NotFound from "./components/notFound";
+import Details from "./components/details";
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import './index.css'
+
+
+const App = ()=>{
+    return (
+        <BrowserRouter>
+        <div>
+            <Header/>
+            <Routes>
+                <Route exact path={'/'} element={<List/>} />
+                <Route exact path={'/currency/:id'} element={<Details/>}/>
+                <Route path={'*'} element={<NotFound/>}/>
+            </Routes>
+        </div>
+        </BrowserRouter>
+    )
+}
+
+export default App
